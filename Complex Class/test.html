@@ -1,0 +1,38 @@
+<script src="./Complex.js"></script>
+<script>
+    window.addEventListener("load", () => { // make sure the page has been fully loaded
+        Module["onRuntimeInitialized"] = function() { // make sure that the module has been loaded and ready to use
+            var c1 = new Module.Complex(3, 4);   // contains (3, 4)
+            var c2 = new Module.Complex(12, 5);  // contains (12, 5)
+
+            console.log("Number of 'Complex' instances is: " + Module.Complex.Count);
+            console.log("\n");
+
+            console.log("c1 length is: " + c1.Length);
+            console.log("c2 length is: " + c2.Length);
+            console.log("\n");
+
+            console.log("c1 real part is: " + c1.Real);
+            console.log("c1 imaginary part is: " + c1.Imaginary);
+            console.log("c2 real part is: " + c2.Real);
+            console.log("c2 imaginary part is: " + c2.Imaginary);
+            console.log("\n");
+
+            c1.Real = 6;
+            c1.Imaginary = 8;
+            console.log("c1 real part after change: " + c1.Real);
+            console.log("c1 imaginary part after change: " + c1.Imaginary);
+            console.log("\n");
+
+            c1.delete();    // calling the destructor
+            console.log("Number of 'Complex' instances after deleting 'c1' is: " + Module.Complex.Count);
+            c2.delete();    // calling the destructor
+            console.log("Number of 'Complex' instances after deleting 'c2' is: " + Module.Complex.Count);
+            console.log("\n");
+
+            console.log("Try playing around with the properties and methods , try assigning a character instead of a double and see what happens ...");
+            console.log("Also , try deleting a previously deleted object , and try assigning a value to a read-only property (like Length) ...");
+            console.log("\n");
+        };
+    });
+</script>
